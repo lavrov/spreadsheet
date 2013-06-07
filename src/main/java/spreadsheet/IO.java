@@ -19,6 +19,8 @@ public class IO {
             final Map<CellIndex, Cell> map = new HashMap<>();
             String line;
             while ((line = reader.readLine()) != null) {
+                if(line.trim().isEmpty()) continue;
+
                 Option<Cell> cell = Interpreter.interpret(line);
 
                 if(cell.isNone()) return Option.none();
